@@ -24,7 +24,7 @@ export default function Login() {
         const userData = await authenService.getCurrentUser();
         if (userData) {
           dispatch(login(userData));
-          navigate("/");
+          navigate("/all-posts");
         } else dispatch(logout());
       }
     } catch (error) {

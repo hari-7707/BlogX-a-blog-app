@@ -20,7 +20,6 @@ class AuthenService {
         password
       );
       if (userAccount) {
-        //call login
         return this.login({ email, password });
       } else {
         return userAccount;

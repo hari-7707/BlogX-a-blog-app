@@ -3,6 +3,8 @@ import { Input, Button, Logo } from "../index";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { authenService } from "../../Appwrite";
+import { login } from "../../Store/Slices/AuthenSlice";
 export default function Signup() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -16,11 +18,14 @@ export default function Signup() {
   const submitSignIn = async (data) => {
     setError("");
     try {
-      const userData = await authService.createAccount(data);
+      const userData = await authenService.createAccount(data);
       if (userData) {
-        const userData = await authService.getCurrentUser();
-        if (userData) dispatch(login(userData));
-        navigate("/");
+        const userData = await authenService.getCurrentUser();
+
+        if (userData) {
+          dispatch(login(userData));
+          navigate("/all-posts");
+        }
       }
     } catch (error) {
       setError(error.message);
@@ -46,7 +51,7 @@ export default function Signup() {
               placeholder="Full Name"
               type="text"
               className="outline-none px-2 py-1 w-full h-12 rounded-md focus:bg-orange-100 shadow-md text-lg mb-2"
-              {...register("password", {
+              {...register("name", {
                 required: "Required",
               })}
             />
@@ -94,7 +99,7 @@ export default function Signup() {
           </div>
           <Button
             className=" outline-none bg-orange-600 m-3 w-11/12 h-12 rounded-md  shadow-md text-white hover:bg-orange-700 focus:bg-orange-700"
-            type="submit text-lg"
+            type="submit"
             children="Sign In"
           ></Button>
         </div>
