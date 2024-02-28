@@ -35,7 +35,7 @@ export default function Signup() {
       >
         <div className="flex flex-col justify-start items-center w-full sm:w-3/4  lg:w-1/2 shadow-lg  font-mono text-2xl  mx-auto bg-white p-5 rounded-2xl">
           <Logo className=" w-32 h-16 mb-5"></Logo>
-          <h1 className=" text-lg mb-5">
+          <h1 className=" text-lg mb-5 text-center">
             already have any account..
             <span className=" text-orange-500 hover:text-orange-600">
               <Link to="/login"> sign In</Link>
