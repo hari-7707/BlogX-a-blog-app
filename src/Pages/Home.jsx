@@ -24,7 +24,7 @@ export default function Home() {
     } else {
       navigate("/login");
     }
-  }, []);
+  }, [status]);
 
   return (
     <div className="flex justify-start flex-wrap w-full p-3 min-h-screen">
