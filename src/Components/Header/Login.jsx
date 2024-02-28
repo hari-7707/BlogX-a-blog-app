@@ -84,7 +84,7 @@ export default function Login() {
             type="submit text-lg"
             children="Sign In"
           ></Button>
-          <h1 className=" text-lg mt-5">
+          <h1 className=" text-lg mt-5 text-center">
             Don't have any account..
             <span className=" text-orange-500 hover:text-orange-600">
               <Link to="/signup"> sign up</Link>
